@@ -191,4 +191,4 @@ Please ensure your code follows the existing style and includes tests for new fe
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source.
