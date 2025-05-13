@@ -74,18 +74,6 @@
         "action_type": "gemini_prompt",
         "input_array": ["initial_prompt", "prompt_2", "José:", "prompt_3", "João:", "response_1", "José:", "response_2"],
         "generation_config": {
-            "responseMimeType": "application/json",
-            "responseSchema": {
-                "type": "OBJECT",
-                "properties": {
-                    "in_character_reasoning": {
-                        "type": "STRING"
-                    },
-                    "response": {
-                        "type": "STRING"
-                    }
-                }
-            },
             "temperature": 1,
             "top_p": 0.95,
             "top_k": 64,

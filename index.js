@@ -65,11 +65,11 @@ async function geminiPrompt(item) {
         }
     }
     const result = await gemini.sendMessage([], input_string, item.generation_config)
-    const parsed_json = JSON.parse(result)
-    if(parsed_json) {
-        inference_space[output_path] = parsed_json
-    } else {
-        inference_space[output_path] = result
+    let processed_result;
+    try {
+        processed_result = JSON.parse(result);
+    } catch (error) {
+        processed_result = result
     }
 }
 
