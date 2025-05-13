@@ -1,0 +1,100 @@
+[
+    {
+        "action_type": "file_input",
+        "file_path": "./inputs/initial_prompt.txt",
+        "output_path": "initial_prompt"
+    },
+    {
+        "action_type": "define_constant",
+        "value": "valor",
+        "output_path": "constant_1"
+    },
+    {
+        "action_type": "file_input",
+        "file_path": "./inputs/prompt_2.txt",
+        "output_path": "prompt_2"
+    },
+    {
+        "action_type": "file_input",
+        "file_path": "./inputs/prompt_3.txt",
+        "output_path": "prompt_3"
+    },
+    {
+        "action_type": "file_input",
+        "file_path": "./inputs/prompt_4.txt",
+        "output_path": "prompt_4"
+    },
+    {
+        "action_type": "gemini_prompt",
+        "input_array": ["initial_prompt", "prompt_2", "José:", "prompt_3"],
+        "generation_config": {
+            "responseMimeType": "application/json",
+            "responseSchema": {
+                "type": "OBJECT",
+                "properties": {
+                    "in_character_reasoning": {
+                        "type": "STRING"
+                    },
+                    "response": {
+                        "type": "STRING"
+                    }
+                }
+            },
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 64,
+            "max_output_tokens": 8192
+        },
+        "output_path": "response_1"
+    },
+    {
+        "action_type": "gemini_prompt",
+        "input_array": ["initial_prompt", "prompt_4", "José:", "prompt_3", "João:", "response_1"],
+        "generation_config": {
+            "responseMimeType": "application/json",
+            "responseSchema": {
+                "type": "OBJECT",
+                "properties": {
+                    "in_character_reasoning": {
+                        "type": "STRING"
+                    },
+                    "response": {
+                        "type": "STRING"
+                    }
+                }
+            },
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 64,
+            "max_output_tokens": 8192
+        },
+        "output_path": "response_2"
+    },
+    {
+        "action_type": "gemini_prompt",
+        "input_array": ["initial_prompt", "prompt_2", "José:", "prompt_3", "João:", "response_1", "José:", "response_2"],
+        "generation_config": {
+            "responseMimeType": "application/json",
+            "responseSchema": {
+                "type": "OBJECT",
+                "properties": {
+                    "in_character_reasoning": {
+                        "type": "STRING"
+                    },
+                    "response": {
+                        "type": "STRING"
+                    }
+                }
+            },
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 64,
+            "max_output_tokens": 8192
+        },
+        "output_path": "response_3"
+    },
+    {
+        "action_type": "output",
+        "output_array":["José:", "prompt_3", "João:", "response_1", "José:", "response_2", "João:", "response_3"]
+    }
+]
